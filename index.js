@@ -1259,4 +1259,4 @@ function cuantoConsignoPersona(consignaciones,gente,nombre){
     return sumaMonto
 }
 
-console.log(cuantoConsignoPersona(listaConsignaciones,listaGente, 'David'));
+console.log(cuantoConsignoPersona(listaConsignaciones,listaGente, 'Jose'));
