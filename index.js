@@ -1260,3 +1260,17 @@ function cuantoConsignoPersona(consignaciones,gente,nombre){
 }
 
 console.log(cuantoConsignoPersona(listaConsignaciones,listaGente, 'Jose'));
+
+console.log("-----")
+
+function listaDeNumeros(listaNum){
+    var listaNumMayor10 = []
+    for (var numero of listaNum) {
+        if(numero > 10){
+            listaNumMayor10.push(numero)
+        }
+    } 
+    return listaNumMayor10
+}
+
+console.log(listaDeNumeros([12,9,13]))
