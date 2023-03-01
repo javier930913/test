@@ -1260,3 +1260,4 @@ function cuantoConsignoPersona(consignaciones,gente,nombre){
 }
 
 console.log(cuantoConsignoPersona(listaConsignaciones,listaGente, 'Jose'));
+console.log(cuantoConsignoPersona(listaConsignaciones,listaGente, 'David'));
