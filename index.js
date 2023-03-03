@@ -1274,3 +1274,4 @@ function listaDeNumeros(listaNum){
 }
 
 console.log(listaDeNumeros([12,9,13]))
+
