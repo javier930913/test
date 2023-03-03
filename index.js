@@ -1275,3 +1275,58 @@ function listaDeNumeros(listaNum){
 
 console.log(listaDeNumeros([12,9,13]))
 
+console.log("-----")
+class Estudiante{
+    constructor(nombre, edad, genero){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero;
+    }
+}
+
+const estudiantes = [
+    new Estudiante("David",29,"M"),
+    new Estudiante("Jose",17,"M"),
+    new Estudiante("Isabel",25,"F")
+]
+
+console.log(estudiantes)
+
+console.log("---")
+
+const prueba = {
+    altura: 180,
+    peso: 90,
+}
+
+function mar2(listaEstudiantes){
+    const listaMapeada = listaEstudiantes.map(function(alumno){
+        const {nombre,edad} = alumno
+        return {
+            nombre,
+            edad,
+        }
+    })
+    return listaMapeada
+}
+
+console.log(mar2(estudiantes))
+
+console.log("---")
+
+function mar2_1(listaEstudiantes){
+    const listaMapeada = listaEstudiantes.map(function(alumno){
+        const { edad } = alumno
+        let mayor = true
+        if(edad < 18){
+            mayor = false
+        }
+        return {
+            ...alumno,
+            mayor
+        }
+    })
+    return listaMapeada
+}
+
+console.log(mar2_1(estudiantes))
