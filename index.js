@@ -1330,3 +1330,76 @@ function mar2_1(listaEstudiantes){
 }
 
 console.log(mar2_1(estudiantes))
+
+console.log("----")
+
+class ClienteBanco{
+    constructor(id, nombre, cedula){
+        this.id = id
+        this.nombre = nombre;
+        this.cedula = cedula;
+    }
+}
+
+class TransferenciaBanco{
+    constructor(id, monto, idCuentaOrigen, idCuentaDestino){
+        this.id = id
+        this.monto = monto;
+        this.idCuentaOrigen = idCuentaOrigen;
+        this.idCuentaDestino = idCuentaDestino;
+    }
+}
+
+class CuentaBanco{
+    constructor(id, idCliente, tipo){
+        this.id = id;
+        this.idCliente = idCliente;
+        this.tipo = tipo;
+    }
+}
+
+// {
+//     id: 1,
+//     monto: 100,
+//     idCuentaOrigen: 1,
+//     idCuentaDestino: 2,
+//     nombreOrigen: "Javi",
+//     nombreDestino: "Francis"
+// }
+
+function obternerNombreTransaccion(clientes, transacciones, cuentas){
+    const listaMapeada = transacciones.map(function(transaccion){
+
+        const cuentaOrigen = cuentas.find(function(cuenta){
+            return cuenta.id == transaccion.idCuentaOrigen
+        })
+        const busquedaClienteOrigen = clientes.find(function(cliente){
+            return cliente.id == cuentaOrigen.idCliente
+        })
+        const cuentaDestino = cuentas.find(function(cuenta){
+            return cuenta.id == transaccion.idCuentaDestino
+        })
+        const busquedaClienteDestino = clientes.find(function(cliente){
+            return cliente.id == cuentaDestino.idCliente
+        })
+
+        const {nombre: nombreCuentaOrigen} = busquedaClienteOrigen
+        const {nombre: nombreCuentaDestino} = busquedaClienteDestino
+        
+        return {
+            ...transaccion,
+            nombreCuentaOrigen,
+            nombreCuentaDestino
+        }
+    })
+    return listaMapeada
+}
+
+console.log(obternerNombreTransaccion(
+    null, 
+    [
+        new TransferenciaBanco(1,10000,1234,5678),
+        new TransferenciaBanco(2,20000,1234,5678)
+    ],
+    null 
+));
